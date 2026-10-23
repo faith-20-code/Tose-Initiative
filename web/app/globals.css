@@ -1,26 +1,128 @@
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8f4e9;
+  --foreground: #173b32;
+
+  --ton-forest: #123f34;
+  --ton-forest-deep: #0b3028;
+  --ton-ivory: #f8f4e9;
+  --ton-gold: #e9b747;
+  --ton-clay: #d77b5b;
+  --ton-sage: #e8f0e8;
+  --ton-muted: #65766e;
+  --ton-border: #e4e3d9;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--ton-gold);
+  color: var(--ton-forest-deep);
+}
+
+:focus-visible {
+  outline: 3px solid var(--ton-clay);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+html,
+body {
+  background-color: #f8f4e9 !important;
+  color: #173b32 !important;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  background-color: #f8f4e9;
+  color: #173b32;
+}
+
+
+/* TON button styles */
+.ton-button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  border: 1px solid #123f34;
+  border-radius: 9999px;
+  background-color: #123f34;
+  color: #ffffff !important;
+  font-weight: 700;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.ton-button-primary:hover {
+  background-color: #0b3028;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+.ton-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  border: 1px solid #b9c8bd;
+  border-radius: 9999px;
+  background-color: #f8f4e9;
+  color: #123f34 !important;
+  font-weight: 700;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.ton-button-secondary:hover {
+  background-color: #e8f0e8;
+  color: #123f34 !important;
+  transform: translateY(-1px);
 }
